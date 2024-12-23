@@ -1,0 +1,83 @@
+.footer-cgv-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Chia thành 4 cột đều nhau */
+    gap: 40px; /* Khoảng cách giữa các phần tử */
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa footer trong trang */
+    padding: 40px 20px; /* Thêm khoảng cách trên và dưới */
+}
+
+.footer-cgv-policy {
+    text-align: left; /* Đặt văn bản canh trái cho dễ đọc */
+    min-width: 200px;
+}
+
+.footer-cgv-policy h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black; /* Đảm bảo tiêu đề có màu đen */
+}
+
+.footer-cgv-policy p,
+.footer-cgv-policy ul li,
+.footer-cgv-policy ul li a {
+    font-size: 14px; /* Đặt kích thước chữ phù hợp cho đọc dễ dàng */
+    color: black; /* Đảm bảo tất cả chữ đều có màu đen */
+}
+
+.footer-cgv-policy ul {
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Loại bỏ dấu đầu dòng của danh sách */
+}
+
+.footer-cgv-policy ul li {
+    margin-bottom: 8px; /* Khoảng cách giữa các mục trong danh sách */
+}
+
+.footer-cgv-policy ul li a {
+    text-decoration: none; /* Bỏ gạch chân liên kết */
+}
+
+.footer-cgv-policy ul li a:hover {
+    text-decoration: underline; /* Thêm gạch chân khi hover */
+}
+
+.footer-cgv-policy img {
+    max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng của container */
+    height: auto; /* Tự động điều chỉnh chiều cao để giữ tỷ lệ */
+}
+.footer-cgv-policy .social-icons {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các biểu tượng */
+    list-style: none; /* Loại bỏ dấu đầu dòng của danh sách */
+    padding: 0;
+    margin: 15px 0; /* Khoảng cách trên và dưới của danh sách biểu tượng */
+}
+
+.footer-cgv-policy .social-icons li {
+    display: inline-block;
+}
+
+.footer-cgv-policy .social-icons li img {
+    width: 40px; /* Kích thước của biểu tượng */
+    height: 40px;
+    transition: transform 0.3s; /* Hiệu ứng khi hover vào biểu tượng */
+}
+
+.footer-cgv-policy .social-icons li img:hover {
+    transform: scale(1.1); /* Tăng kích thước khi hover vào biểu tượng */
+}
+
+.cgv-permission {
+    margin-top: 15px; /* Khoảng cách trên của phần giấy phép */
+    text-align: center; /* Căn giữa hình ảnh giấy phép */
+}
+
+.cgv-permission img {
+    width: 100px; /* Điều chỉnh kích thước phù hợp */
+    height: auto;
+}
+
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/botman/botman" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/botman/driver-facebook" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/evenement/evenement" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/mpociot/pipeline" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/opis/closure" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/react/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/react/dns" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/react/event-loop" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/react/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/react/promise-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/react/socket" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/react/stream" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/spatie/macroable" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/symfony/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/symfony/polyfill-intl-idn" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/symfony/polyfill-php72" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/symfony/var-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/chatbot/vendor/tightenco/collect" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
