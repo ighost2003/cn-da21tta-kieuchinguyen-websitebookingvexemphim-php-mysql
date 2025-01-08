@@ -84,7 +84,6 @@ Một trong web có thể được viết ra bằng nhiều các ngôn ngữ l�
 # 2.1.1.3	 PHP là Front-End hay Back-End?
 Nói một cách dễ hiểu thì PHP chính là ngôn ngữ back-end. Điều này có nghĩa là PHP chủ yếu tập trung vào phía máy chủ của quá trình phát triển web, xử lý các tác vụ như xử lý đầu vào của người dùng, kết nối với cơ sở dữ liệu và tạo nội dung động.
  ![image](https://github.com/user-attachments/assets/9d87142a-ddde-4b36-9bd4-2033b85298e4)
-
 Hình 1. Giới thiệu về ngôn ngữ PHP
 Bạn cũng có thể sử dụng PHP ở giao diện người dùng, nhưng nó không phổ biến bằng. Ngôn ngữ chính để phát triển front-end là HTML, CSS và JavaScript, chịu trách nhiệm về cấu trúc, thiết kế và tính tương tác của trang web.
 Ngoài ra, PHP hỗ trợ người dùng trong việc xử lý các tác vụ phức tạp trên máy chủ và dễ dàng tích hợp với cơ sở dữ liệu như MySQL. Điều này giúp cho PHP trở nên hoàn hảo hơn để xây dựng các ứng dụng web động. Bên cạnh đó, PHP cũng có thể giao tiếp với các ngôn ngữ phía máy chủ khác, điều này đã giúp cho PHP trở thành một lựa chọn linh hoạt để phát triển back-end.
@@ -168,9 +167,7 @@ MySQL sẽ có một số hạn chế đối với chức năng mà một số �
 •	JavaScript: Mặc dù tên của nó dễ khiến người ta nhầm lẫn với Java, JavaScript lại là một ngôn ngữ lập trình mạnh mẽ và linh hoạt, giúp làm sống động các trang web. Nó cho phép thực hiện các tác vụ động, như thao tác với dữ liệu người dùng, tạo ra các hiệu ứng tương tác và thậm chí là xây dựng ứng dụng web phức tạp. JavaScript có thể chạy cả phía client (trình duyệt) và server, giúp xử lý các yêu cầu trong thời gian thực và mang lại trải nghiệm người dùng mượt mà.
 # 2.1.7	BOOTSTRAP 5
 Bootstrap là một framework mạnh mẽ, kết hợp các template HTML, CSS và JavaScript, được thiết kế đặc biệt để giúp xây dựng các trang web chuẩn responsive (tương thích với mọi kích thước màn hình). Với Bootstrap, quá trình thiết kế trở nên nhanh chóng và dễ dàng nhờ vào những thành phần cơ bản đã được chuẩn hóa, như typography, forms, buttons, tables, grids, navigation, image carousels và nhiều yếu tố khác.
-
   ![image](https://github.com/user-attachments/assets/3e433242-6e93-4cff-a2dd-80c76f2d7684)
- 
 Hình 7. Giới thiệu về framework Bootstrap 5
 # 2.1.8	DATA TABLES
 DataTables là một plugin jQuery mạnh mẽ giúp tối ưu hóa việc xử lý và hiển thị bảng dữ liệu trên các trang web HTML. Plugin này cung cấp các tính năng nâng cao để quản lý bảng biểu hiệu quả, phù hợp với các ứng dụng web hiện đại.
@@ -286,6 +283,26 @@ USER_INTO ( user_id_info, users_info_name, users_info_age, users_info_gender, us
 ![image](https://github.com/user-attachments/assets/fd02dbed-566c-4eec-9a23-e2633b10aa9d)
 ![image](https://github.com/user-attachments/assets/50cebee0-86f6-4152-8dcb-fe503fd3ee7d)
 ![image](https://github.com/user-attachments/assets/280cbe0b-6579-4be3-8531-33dc433881c3)
+![image](https://github.com/user-attachments/assets/c381ea1f-1a42-4b9a-be7f-92bef4cb07c3)
+![image](https://github.com/user-attachments/assets/18973891-047a-4176-bf77-ada4e4d44e79)
+![image](https://github.com/user-attachments/assets/578f99e1-56e1-4962-8550-9db88191e7c3)
+![image](https://github.com/user-attachments/assets/b829c553-57e7-4b7d-b1aa-13269d1c5756)
+![image](https://github.com/user-attachments/assets/9afd4c92-39ba-4b60-8b4c-f67e419fbb44)
+![image](https://github.com/user-attachments/assets/01c72958-5a63-488e-a6f1-9cb30b062a86)
+![image](https://github.com/user-attachments/assets/af85dccb-9b9a-4b21-82f6-31c237474167)
+![image](https://github.com/user-attachments/assets/ea44740b-4f40-46ff-ae68-ba1ab35dbdb9)
+![image](https://github.com/user-attachments/assets/878a06ff-996e-4eea-a2f9-223d7d284f26)
+![image](https://github.com/user-attachments/assets/968a585e-2100-44a0-98b3-04f3874b2f7e)
+![image](https://github.com/user-attachments/assets/16daa169-45ad-4f91-828a-3a1edd98c570)
+![image](https://github.com/user-attachments/assets/1fa9273e-9c74-4e5d-95fa-ff11d13c985e)
+![image](https://github.com/user-attachments/assets/5098e557-164d-4f88-b443-b8fd7ad75282)
+![image](https://github.com/user-attachments/assets/1ea7c4ac-1a02-47ee-8570-10fc52b65b9a)
+![image](https://github.com/user-attachments/assets/3bc16087-1843-4220-b001-9bbf330730b7)
+![image](https://github.com/user-attachments/assets/801c86cc-6383-46a4-b23c-f55cf0a5f028)
+![image](https://github.com/user-attachments/assets/307463b2-c191-4aef-8fb4-28e974fbf241)
+![image](https://github.com/user-attachments/assets/11b7f0f5-b131-4b89-b204-6dd2ccaa42ff)
+![image](https://github.com/user-attachments/assets/be0ee7fb-1202-4021-8eb0-2291ad21bdb7)
+
 # CHƯƠNG 4: KẾT QUẢ NGHIÊN CỨU
 
 # 4.1 KẾT QUẢ ĐẠT ĐƯỢC
