@@ -55,6 +55,11 @@
             <label for="age">Tuổi:</label>
             <input class="form-control" id="age" name="age" placeholder="<?php echo $row_userInfo['users_info_age'];?>">
         </div>
+        <div class="form-group">
+    <label for="phone">Số Điện Thoại:</label>
+    <input class="form-control" id="phone" name="phone" placeholder="Nhập Số Điện Thoại">
+</div>
+
         <button type="submit" name ="updateInfo" class="btn btn-primary">Cập Nhật Thông Tin</button>
         </form><?php
     }
@@ -74,6 +79,10 @@
         <div class="form-group">
             <label for="age">Tuổi:</label>
             <input class="form-control" id="age" name="age"placeholder="Nhập Số Tuổi">
+        </div>
+        <div class="form-group">
+            <label for="phone">Số Điện Thoại:</label>
+            <input class="form-control" id="phone" name="phone"placeholder="Nhập Số Điện Thoại">
         </div>
         <button type="submit" name ="insertInfo" class="btn btn-primary">Cập Nhật Thông Tin</button>
         </form><?php

@@ -1,23 +1,77 @@
 <?php
- include_once("db/connect.php");
 session_start();
-// ... existing code ...
-echo '<a href="index.php"><img src="./img/cgvlogo.png" alt="" style="position: absolute; top: 10px; left: 10px; width: 180px; transition: transform 0.3s;" onmouseover="this.style.transform=\'scale(1.1)\'" onmouseout="this.style.transform=\'scale(1)\'"></a>';
-// ... existing code ...
-// Lấy email từ query parameter
-$email = isset($_GET['email']) ? $_GET['email'] : '';
 
-// Hiển thị thông điệp chào mừng
+// Kiểm tra và xóa bộ đệm đầu ra nếu có dữ liệu
+if (ob_get_length()) ob_end_clean();
+
+include_once("db/connect.php");
+
+// Lấy URL hiện tại
+$current_url = $_SERVER['REQUEST_URI'];
+
+// Loại bỏ thư mục đầu tiên
+$trimmed_url = preg_replace('/^\/[^\/]+\//', '/', $current_url);
+
+// Kiểm tra nếu $trimmed_url là "/payment.php?controller=listmovies"
+if ($trimmed_url === "/payment.php?controller=listmovies") {
+    // Chuyển hướng đến index.php
+    header("Location: index.php?controller=listmovies");
+    exit;
+}
+if ($trimmed_url === "/payment.php?controller=listTheater") {
+    // Chuyển hướng đến index.php
+    header("Location: index.php?controller=listTheater");
+    exit;
+}
+if ($trimmed_url === "/payment.php?controller=listnews") {
+    // Chuyển hướng đến index.php
+    header("Location: index.php?controller=listnews");
+    exit;
+}
+
+
+// Không include header.php trước khi kiểm tra chuyển hướng
+include("include/header.php");
+
+// Lấy email từ session
+$email = $_SESSION['user'] ?? '';
+
+// Hiển thị URL đã được xử lý
+//--
+// echo "<div style='margin: 20px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px;'>
+//         <p style='margin: 0; color: #333;'>URL đã xử lý: <strong>" . htmlspecialchars($trimmed_url) . "</strong></p>
+//       </div>";
+
+
+      
+// Đảm bảo không có đầu ra trước khi chuyển hướng
+if (isset($_GET['controller']) && $_GET['controller'] === 'listmovies') {
+    header("Location: index.php?controller=listmovies");
+    exit;
+}
+if (isset($_GET['controller']) && $_GET['controller'] === 'listTheater') {
+    header("Location: index.php?controller=listTheater");
+    exit;
+}
+if (isset($_GET['controller']) && $_GET['controller'] === 'listnews') {
+    header("Location: index.php?controller=listnews");
+    exit;
+}
+
+
+
 if (!empty($email)) {
-    echo "<h2 style='text-align: right;'>Xin chào, " . htmlspecialchars($email) . "!</h2>";
+    //echo "<h2 style='text-align: right;'>Xin chào, " . htmlspecialchars($email) . "!</h2>";
 
     // Kết nối đến cơ sở dữ liệu
-    $mysqli = new mysqli("localhost", "root", "", "cgvdb");
+    //$mysqli = new mysqli("localhost", "root", "", "cgvdb");
 
     // Kiểm tra kết nối
-    if ($mysqli->connect_error) {
-        die("Kết nối thất bại: " . $mysqli->connect_error);
-    }
+    //if ($mysqli->connect_error) {
+        //die("Kết nối thất bại: " . $mysqli->connect_error);
+   // }
+
+
 
     // Truy vấn để lấy user_id
     $stmt = $mysqli->prepare("SELECT `user_id` FROM `users` WHERE `user_email` = ?");
@@ -96,6 +150,8 @@ if (!empty($email)) {
         </style>";
     
     echo "<h3>Thông tin đặt chỗ:</h3>";
+    echo '<a href="all_payment.php" style="display: inline-block; padding: 10px 20px; background-color: red; color: white; text-align: center; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 0 auto; display: block;">THANH TOÁN TẤT CẢ VÉ</a>';
+
     echo "<table>
             <tr>
                 <th>Booking ID</th>
@@ -150,25 +206,33 @@ if (!empty($email)) {
             background-color: #45a049;
         }
     </style>";
+    echo "<tr>
+    <td>" . htmlspecialchars($row['booking_id']) . "</td>
+    <td>" . htmlspecialchars($row['movie_name']) . "</td>
+    <td>" . htmlspecialchars($row['booking_theater']) . "</td>
+    <td>" . htmlspecialchars($row['theaters_address']) . "</td>
+    <td>" . htmlspecialchars($row['booking_seat']) . "</td>
+    <td>" . htmlspecialchars($row['booking_ticket']) . "</td>
+    <td>" . htmlspecialchars($row['booking_time']) . "</td>
+    <td>" . htmlspecialchars($status) . "</td>
+    <td>
+        <form method='POST' action=''>
+            <input type='hidden' name='booking_id' value='" . htmlspecialchars($row['booking_id']) . "' />
+            <input type='hidden' name='movie_name' value='" . htmlspecialchars($row['movie_name']) . "' />
+            <input type='hidden' name='ticket_type' value='" . htmlspecialchars($row['booking_ticket']) . "' />
+            <input type='submit' name='create_qr' value='Tạo QR' />
+            <input type='submit' name='delete_booking' value='Xóa' 
+                   onclick=\"if(confirm('Bạn có chắc chắn muốn xóa đặt chỗ này?')) { 
+                                setTimeout(() => window.location.reload(), 500); 
+                                return true; 
+                            } else { 
+                                return false; 
+                            }\" />
+        </form>
+    </td>
+  </tr>";
 
-echo "<tr>
-        <td>" . htmlspecialchars($row['booking_id']) . "</td>
-        <td>" . htmlspecialchars($row['movie_name']) . "</td>
-        <td>" . htmlspecialchars($row['booking_theater']) . "</td>
-        <td>" . htmlspecialchars($row['theaters_address']) . "</td>
-        <td>" . htmlspecialchars($row['booking_seat']) . "</td>
-        <td>" . htmlspecialchars($row['booking_ticket']) . "</td>
-        <td>" . htmlspecialchars($row['booking_time']) . "</td>
-        <td>" . htmlspecialchars($status) . "</td>
-        <td>
-            <form method='POST' action=''>
-                <input type='hidden' name='booking_id' value='" . htmlspecialchars($row['booking_id']) . "' />
-                <input type='hidden' name='movie_name' value='" . htmlspecialchars($row['movie_name']) . "' />
-                <input type='hidden' name='ticket_type' value='" . htmlspecialchars($row['booking_ticket']) . "' />
-                <input type='submit' name='create_qr' value='Tạo QR' />
-            </form>
-        </td>
-      </tr>";
+
 
                 $product_name = htmlspecialchars($row['booking_ticket']);  // Assign booking_ticket to product_name
                 $product_code = htmlspecialchars($row['booking_id']);  // Mã sản phẩm
@@ -280,7 +344,7 @@ echo "<tr>
 
         // Tạo mã QR sau khi INSERT thành công
          if ($mysqli->query($sql)) {
-        echo "Mã QR đã được tạo và thông tin đã được lưu vào bảng `port_duphong`. Loại vé: " . htmlspecialchars($info_ticket, ENT_QUOTES, 'UTF-8') . ".";
+        echo "Mã QR đã được tạo. Loại vé: " . htmlspecialchars($info_ticket, ENT_QUOTES, 'UTF-8') . ".";
     } else {
         echo "Error in INSERT: " . $mysqli->error;
     }
@@ -379,12 +443,54 @@ $quicklink_url = "https://img.vietqr.io/image/$bank_id-$account_no-$template.png
 }
     }
 
+        // Handle deletion of booking
+        if (isset($_POST['delete_booking'])) {
+            $booking_id = $_POST['booking_id']; // Get the booking ID from the form
+            $delete_stmt = $mysqli->prepare("DELETE FROM `booking` WHERE `booking_id` = ?");
+            $delete_stmt->bind_param("i", $booking_id);
+            $delete_stmt->execute();
+            $delete_stmt->close();
+            echo "<p>Đặt chỗ đã được xóa thành công!Booking id:" . htmlspecialchars($booking_id) . "</p>"; // Confirmation message
+        }
+
     echo '<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">';
     echo '<link rel="stylesheet" href="styles.css">';
+    // echo '<link rel="stylesheet" href="css/footer.css">';
     echo '<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-minimal/minimal.css" rel="stylesheet">';
     echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
     echo '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>';
 
+
+    echo '
+    <link rel="icon" href="./img/icon.png" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="./css/movieD.css">
+    <link rel="stylesheet" href="./css/listEvent.css">
+    <link rel="stylesheet" href="./css/listMovies.css">
+    <link rel="stylesheet" href="./css/newsD.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/listTheater.css">
+    <link rel="stylesheet" href="./css/user.css">
+    <link rel="stylesheet" href="css/footer.css"> <!-- Đường dẫn tới footer.css -->
+';
+echo '
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/listTheater.js"></script>
+    <script src="./js/movieD.js"></script>
+    <script src="./js/userInfo.js"></script>
+';
     //---
     // Thêm CSS tùy chỉnh cho dialog
     echo '<link rel="stylesheet" href="style.css">';
@@ -394,7 +500,12 @@ $quicklink_url = "https://img.vietqr.io/image/$bank_id-$account_no-$template.png
     echo '<div class="product-info">';
     echo "<p><strong>Số tiền:</strong> " . number_format($amount) . " VNĐ</p>";
     echo "<p><strong>Thông tin:</strong> $product_name</p>";
-    echo "<p><strong>Mã Thanh Toán:</strong> $code</p>";
+       // Kiểm tra nếu $code rỗng
+       if (empty($code)) {
+        echo "<p>Vui lòng bấm vào tạo mã QR để thanh toán.</p>";
+    } else {
+        echo "<p><strong>Mã Thanh Toán:</strong> $code</p>";
+    }
     echo "</div>";
     echo '<div class="qr-image">';
     echo "<img src='$quicklink_url' alt='VietQR' />";
@@ -410,4 +521,13 @@ $quicklink_url = "https://img.vietqr.io/image/$bank_id-$account_no-$template.png
     // Đóng kết nối
     $mysqli->close();
 }
+
+echo'<br>';
+echo'<br>';
+echo'<br>';
+echo'<br>';
+       
+
+include("include/footer.php");
+
 ?>

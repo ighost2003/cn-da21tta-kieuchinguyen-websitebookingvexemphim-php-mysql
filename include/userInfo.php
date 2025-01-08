@@ -1,14 +1,19 @@
 <?php
-    if(isset($_POST['updateInfo'])){
-        $sql_updateInfo = mysqli_query($mysqli, "UPDATE `users_info` 
-                SET `users_info_name`= '".$_POST['name']."',`users_info_age`='".$_POST['age']."',`users_info_gender`='".$_POST['gender']."' 
-                WHERE `users_info_login` =  '".$_SESSION['idUser']."'");
-    }
-    if(isset($_POST['insertInfo'])){
-        $sql_updateInfo = mysqli_query($mysqli, "INSERT INTO 
-            `users_info` (`users_info_id`, `users_info_name`, `users_info_age`, `users_info_gender`, `users_info_login`) 
-            VALUES (NULL, '".$_POST['name']."', '".$_POST['age']."', '".$_POST['gender']."', '".$_SESSION['idUser']."');");
-    }
+if(isset($_POST['updateInfo'])){
+    $sql_updateInfo = mysqli_query($mysqli, "UPDATE `users_info` 
+            SET `users_info_name`= '".$_POST['name']."',
+                `users_info_age`= '".$_POST['age']."',
+                `users_info_gender`= '".$_POST['gender']."',
+                `users_info_phone`= '".$_POST['phone']."'
+            WHERE `users_info_login` = '".$_SESSION['idUser']."'");
+}
+
+if(isset($_POST['insertInfo'])){
+    $sql_updateInfo = mysqli_query($mysqli, "INSERT INTO 
+    `users_info` (`users_info_id`, `users_info_name`, `users_info_age`, `users_info_gender`, `users_info_login`, `users_info_phone`) 
+    VALUES (NULL, '".$_POST['name']."', '".$_POST['age']."', '".$_POST['gender']."', '".$_SESSION['idUser']."', '".$_POST['phone']."');");
+}
+
 
     if(isset($_POST['changePassWord'])){
         $sql_changePass = mysqli_query($mysqli, "SELECT * FROM `users`
@@ -39,7 +44,7 @@
             <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action info">Thông tin tài khoản</a>
                 <a href="#" class="list-group-item list-group-item-action history">Lịch sử đặt vé</a>
-                <a href="#" class="list-group-item list-group-item-action changeInfo">Thay đổi thông tin tài khoản</a>
+                <a href="#" class="list-group-item list-group-item-action changeInfo">Chỉnh sửa thông tin tài khoản</a>
                 <a href="#" class="list-group-item list-group-item-action changePass">Đổi mật khẩu</a>
             </div>
         </div>

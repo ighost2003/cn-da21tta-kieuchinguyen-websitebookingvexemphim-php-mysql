@@ -119,12 +119,9 @@
         </a>
         <ul class="header-content-menu">
             <a href="?controller=listmovies">PHIM</a>
-            <a href="?controller=listTheater">RẠP CGV</a>
-            <?php if (!isset($_SESSION['user'])): ?>
-                <a href="" data-toggle="modal" data-target="#login">THANH TOÁN TRỰC TUYẾN</a>
-            <?php else: ?>
-                <a href="payment.php?email=<?php echo urlencode($_SESSION['user']); ?>">THANH TOÁN TRỰC TUYẾN</a>
-            <?php endif; ?>
+            <!-- <a href="?controller=listTheater">RẠP CGV</a> -->
+             <a href="rapcgv.php">RẠP CGV</a>
+             <a href="payment.php">THANH TOÁN TRỰC TUYẾN</a>
             
                 
             <!-- -------------------------------------- -->

@@ -50,6 +50,7 @@
                     <td><?php echo $row_listUser['users_info_name']; ?></td>
                     <td><?php echo $row_listUser['users_info_age']; ?></td>
                     <td><?php echo $row_listUser['users_info_gender']; ?></td>
+                    <td><?php echo $row_listUser['users_info_phone']; ?></td>
                 </tr>
                 <?php
             }

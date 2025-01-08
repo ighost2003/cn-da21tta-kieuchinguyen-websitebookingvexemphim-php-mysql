@@ -51,6 +51,10 @@
             <label for="age">Tuổi:</label>
             <input class="form-control" id="age" placeholder="<?php echo $row_userInfo['users_info_age'];?>" readonly>
         </div>
+        <div class="form-group">
+            <label for="phone">Số Điện Thoại:</label>
+            <input class="form-control" id="phone" placeholder="<?php echo $row_userInfo['users_info_phone'];?>" readonly>
+        </div>
     </form><?php
     }
     ?>
